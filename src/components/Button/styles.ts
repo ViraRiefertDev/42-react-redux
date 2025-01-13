@@ -17,6 +17,14 @@ export const MainButton = styled.button<ButtonStyledProps>`
   line-height: 30px;
   color: #ffffff;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
+  transition: all 0.2s ;
+  &:hover{
+    background-color: #1fb1f5;
+    transition: all 0.2s ;
+  }
+  &:active{
+    background-color: #85a6b5;
+  }
 `;
