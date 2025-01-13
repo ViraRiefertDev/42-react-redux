@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "type-check": "tsc --noEmit",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
