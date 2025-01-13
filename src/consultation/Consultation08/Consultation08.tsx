@@ -1,4 +1,3 @@
-import React from "react"
 import { ConsultationWrapper } from "./styles"
 import Search from "../../components/Search/Search"
 

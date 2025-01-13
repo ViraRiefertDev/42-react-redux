@@ -2,6 +2,7 @@
 import { createAppSlice } from "../../createAppSlice"
 
 import { CounterStateSlice } from "./types"
+
 //4.1 Создаем объект с первоначальным состоянием, который мы потом передаем в initialState
 const counterInitialState: CounterStateSlice = {
   count: 0,
