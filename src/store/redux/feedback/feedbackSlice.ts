@@ -17,15 +17,21 @@ export const feedbackSlice = createAppSlice({
     addDisLike: create.reducer((state: FeedbackStateSlice) => {
       state.disLikeCount += 1
     }),
-    removeAll: create.reducer((state: FeedbackStateSlice) => {
+    /* removeAll: create.reducer((state: FeedbackStateSlice) => {
       state.likeCount = 0
       state.disLikeCount = 0
-    }),
+    }), */
+    //!Вместо перезаписи свойств можно просто вернуть initialState
+    removeAll: create.reducer(() => feedbackInitialState),
   }),
   selectors: {
     likes: (state: FeedbackStateSlice) => state.likeCount,
     dislikes: (state: FeedbackStateSlice) => state.disLikeCount,
   },
+  //!Если много свойств, то можно передавать весь state, и потом через деструктуризацию вытягивать свойсва
+  /* selectors: {
+    feedbackData: (state: FeedbackStateSlice) => state,
+  }, */
 })
 
 export const feedbackSliceActions = feedbackSlice.actions

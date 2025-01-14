@@ -20,9 +20,11 @@ import {
 } from "../../store/redux/feedback/feedbackSlice"
 
 function Feedback() {
+  //! const feedbackData = useAppSelector(feedbackSliceSelectors.feedbackData); 
+  //! const {likeCount, dislikeCount} = useAppSelectors(feedbackSliceSelectors.feedbackData);
   const likeCount = useAppSelector(feedbackSliceSelectors.likes)
   const disLikeCount = useAppSelector(feedbackSliceSelectors.dislikes)
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const onLike = () => {
     dispatch(feedbackSliceActions.addLike())
@@ -60,8 +62,8 @@ function Feedback() {
         </ButtonWrapper>
       </ButtonsContainer>
       {(likeCount || disLikeCount) > 0 && (
-        <ResetResultWrapper className='reset-result-wrapper'>
-          <Button onClick={onReset} name='Reset Result'/>
+        <ResetResultWrapper className="reset-result-wrapper">
+          <Button onClick={onReset} name="Reset Result" />
         </ResetResultWrapper>
       )}
     </FeedbackContainer>
