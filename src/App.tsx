@@ -7,6 +7,7 @@ import Home from "./pages/UsersApp/Home/Home"
 import Users from "./pages/UsersApp/Users/Users"
 
 //homeworks
+import Homework16 from "./homeworks/Homework16/Homework16"
 
 //consultations
 /* import Consultation08 from "./consultation/Consultation08/Consultation08" */
@@ -17,13 +18,14 @@ const App = () => {
       {/* <Consultation08 /> */}
       {/* <Lesson16/> */}
       {/* UserApp - Practice - Lesson16 */}
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="Users" element={<Users />} />
           <Route path="*" element="Page not found" />
         </Routes>
-      </Layout>
+      </Layout> */}
+      <Homework16/>
     </BrowserRouter>
   )
 }
