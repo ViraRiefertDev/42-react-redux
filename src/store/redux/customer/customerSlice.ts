@@ -36,7 +36,7 @@ export const customerSlice = createAppSlice({
         fulfilled: (state:CustomerStateSlice, action: any) => {
           state.status = 'success'
           state.data = {
-            name: `${action.payload.name.title} ${action.payload.name.first} ${action.payload.name.title}`,
+            name: `${action.payload.name.title} ${action.payload.name.first} ${action.payload.name.last}`,
             gender: action.payload.gender,
             email: action.payload.email,
             tel: action. payload.phone,
