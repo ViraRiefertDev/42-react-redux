@@ -33,13 +33,13 @@ const App = () => {
       </Layout> */}
       {/* <Homework16/> */}
       {/* Consult9 */}
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/profile" element={<CustomerProfile/>}/>
         </Routes>
-      </Layout>
-      {/* <Lesson17/> */}
+      </Layout> */}
+      <Lesson17/>
     </BrowserRouter>
   )
 }

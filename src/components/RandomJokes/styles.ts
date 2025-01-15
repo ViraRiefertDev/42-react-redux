@@ -12,7 +12,7 @@ export const JokeCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 100px;
+  gap: 50px;
   width: 700px;
   min-height: 400px;
   padding: 20px;
@@ -30,3 +30,6 @@ export const JokeText = styled.div`
   font-weight: bold;
   color: rebeccapurple;
 `
+export const SpinnerWrapper = styled.div`
+  height:100px;
+`;

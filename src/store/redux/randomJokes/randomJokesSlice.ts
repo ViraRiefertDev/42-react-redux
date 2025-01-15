@@ -2,6 +2,7 @@ import axios from "axios"
 import { createAppSlice } from "../../createAppSlice"
 import { RandomJokesSliceState } from "./types"
 import { aC } from "vitest/dist/reporters-yx5ZTtEV.js"
+import { PayloadAction } from "@reduxjs/toolkit"
 
 const randomJokesInitialState: RandomJokesSliceState = {
   data: [],
@@ -44,7 +45,13 @@ export const RandomJokesSlice = createAppSlice({
         //* 6. Обработка успешного результата
         fulfilled: (state: RandomJokesSliceState, action: any) => {
           state.status = "success"
-          state.data = [...state.data, action.payload]
+          state.data = [
+            ...state.data,
+            {
+              id: action.payload.id,
+              joke: `${action.payload.setup} - ${action.payload.punchline}`,
+            },
+          ]
         },
         //* 7. Обработка ошибки
         rejected: (state: RandomJokesSliceState, action: any) => {
@@ -54,6 +61,11 @@ export const RandomJokesSlice = createAppSlice({
       },
     ),
     deleteAllJokes: create.reducer(() => randomJokesInitialState),
+    deleteJokeById: create.reducer(
+      (state: RandomJokesSliceState, action: PayloadAction<string>) => {
+        state.data = state.data.filter(joke => joke.id !== action.payload)
+      },
+    ),
   }),
   selectors: {
     jokeData: (state: RandomJokesSliceState) => state,
