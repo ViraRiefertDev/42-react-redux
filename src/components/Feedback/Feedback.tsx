@@ -25,9 +25,10 @@ function Feedback() {
   const likeCount = useAppSelector(feedbackSliceSelectors.likes)
   const disLikeCount = useAppSelector(feedbackSliceSelectors.dislikes)
   const dispatch = useAppDispatch();
+  const Pluslikes = 100
 
   const onLike = () => {
-    dispatch(feedbackSliceActions.addLike())
+    dispatch(feedbackSliceActions.addLike(100))
   }
 
   const onDisLike = () => {

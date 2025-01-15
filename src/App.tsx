@@ -4,6 +4,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/UsersApp/Home/Home"
 import Users from "./pages/UsersApp/Users/Users"
  */
+import Layout from "./pages/CustomerApp/Layout/Layout"
+import Home from "./pages/CustomerApp/Home/Home"
+import CustomerProfile from "./pages/CustomerApp/CustomerProfile/CustomerProfile"
 
 //lessons
 import Lesson16 from "./lessons/Lesson16/Lesson16"
@@ -29,7 +32,14 @@ const App = () => {
         </Routes>
       </Layout> */}
       {/* <Homework16/> */}
-      <Lesson17/>
+      {/* Consult9 */}
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/profile" element={<CustomerProfile/>}/>
+        </Routes>
+      </Layout>
+      {/* <Lesson17/> */}
     </BrowserRouter>
   )
 }
