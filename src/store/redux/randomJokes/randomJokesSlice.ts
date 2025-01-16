@@ -1,8 +1,8 @@
 import axios from "axios"
 import { createAppSlice } from "../../createAppSlice"
 import { RandomJokesSliceState } from "./types"
-import { aC } from "vitest/dist/reporters-yx5ZTtEV.js"
 import { PayloadAction } from "@reduxjs/toolkit"
+import { v4 } from "uuid"
 
 const randomJokesInitialState: RandomJokesSliceState = {
   data: [],
@@ -48,7 +48,7 @@ export const RandomJokesSlice = createAppSlice({
           state.data = [
             ...state.data,
             {
-              id: action.payload.id,
+              id: v4(),
               joke: `${action.payload.setup} - ${action.payload.punchline}`,
             },
           ]

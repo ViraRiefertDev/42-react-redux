@@ -9,11 +9,12 @@ import Home from "./pages/CustomerApp/Home/Home"
 import CustomerProfile from "./pages/CustomerApp/CustomerProfile/CustomerProfile"
 
 //lessons
-import Lesson16 from "./lessons/Lesson16/Lesson16"
-import Lesson17 from "./lessons/Lesson17/Lesson17"
+/* import Lesson16 from "./lessons/Lesson16/Lesson16" */
+/* import Lesson17 from "./lessons/Lesson17/Lesson17" */
+import Lesson18 from "./lessons/Lesson18/Lesson18"
 
 //homeworks
-import Homework16 from "./homeworks/Homework16/Homework16"
+/* import Homework16 from "./homeworks/Homework16/Homework16" */
 
 //consultations
 /* import Consultation08 from "./consultation/Consultation08/Consultation08" */
@@ -39,7 +40,8 @@ const App = () => {
           <Route path="/profile" element={<CustomerProfile/>}/>
         </Routes>
       </Layout> */}
-      <Lesson17/>
+      {/* <Lesson17/> */}
+      <Lesson18/>
     </BrowserRouter>
   )
 }
