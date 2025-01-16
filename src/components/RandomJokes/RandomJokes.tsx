@@ -5,6 +5,7 @@ import {
   JokesContainer,
   RandomJokesWrapper,
   JokeText,
+  SpinnerWrapper,
 } from "./styles"
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
 import {
@@ -12,6 +13,9 @@ import {
   randomJokesSliceSelectors,
 } from "../../store/redux/randomJokes/randomJokesSlice"
 import { v4 } from "uuid"
+
+import RandomJoke from "./components/RandomJoke/RandomJoke"
+import { IRandomJoke } from "./types"
 
 function RandomJokes() {
   const dispatch = useAppDispatch()
@@ -23,15 +27,21 @@ function RandomJokes() {
     dispatch(randomJokesSliceActions.getJoke())
   }
 
-  const deleteJokes = ()=>{
+  const deleteJokes = () => {
     dispatch(randomJokesSliceActions.deleteAllJokes())
+  }
+  const handleDeleteJoke = (id: string) => {
+    dispatch(randomJokesSliceActions.deleteJokeById(id))
   }
 
   console.log(data)
-  const jokes = data.map((joke: any) => {
+  const jokes = data.map((joke: IRandomJoke) => {
     return (
       <JokeText>
-        {joke.setup} - {joke.panchline}
+        <RandomJoke
+          jokeText={joke.joke}
+          onDeleteJoke={() => handleDeleteJoke(joke.id)}
+        />
       </JokeText>
     )
   })
@@ -40,9 +50,13 @@ function RandomJokes() {
     <RandomJokesWrapper>
       <JokeCard key={v4()}>
         <Button name="GET JOKES" onClick={getJoke} />
-        {status === "loading" && <Spinner />}
+        <SpinnerWrapper>{status === "loading" && <Spinner />}</SpinnerWrapper>
         <JokesContainer>{jokes}</JokesContainer>
-        <Button name="DELETE JOKES" onClick={deleteJokes}/>
+        {
+          (data.length !== 0 && (
+            <Button name="DELETE JOKES" onClick={deleteJokes} />
+          ))
+        }
       </JokeCard>
     </RandomJokesWrapper>
   )
